@@ -46,4 +46,6 @@ tput setaf 5; tput bold; echo "Gitting the latest forked projects"
 cd CloneGits
 python clonegits.py --user bigttys0 --nopull --dest /root/gits
 
+trash-empty
+
 tput setaf 3; tput bold; echo "*****Complete!*****"
