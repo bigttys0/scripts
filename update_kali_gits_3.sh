@@ -7,8 +7,6 @@ tput setaf 3; tput bold; echo -e "*****Kali & Git Update Script*****"
 echo "Press ENTER to continue, CTRL+C to abort."
 read input
 
-sleep 1
-
 tput setaf 7; tput bold; echo "[+] Updating Kali. Please wait."
 apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y
 
