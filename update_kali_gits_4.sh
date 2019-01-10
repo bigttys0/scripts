@@ -17,7 +17,7 @@ tput setaf 2; tput bold; echo "[+] Kali is now up to date."
 
 sleep 1
 tput setaf 6; tput bold; echo "[+] Cleaning Kali. Please wait."
-apt autoclean -y && apt clean -y
+apt autoremove -y && apt autoclean -y && apt clean -y
 sleep 1 
 tput setaf 6; tput bold; echo "[+] Kali is now less dirty!"
 sleep 1
