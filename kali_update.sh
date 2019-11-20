@@ -23,7 +23,7 @@ tput setaf 2; tput bold; echo "[+] Kali is now less dirty!"
 sleep 1 
 
 tput setaf 1; tput bold; echo 
-read -p "Process is complete, do you want to reboot now? " -n 1 -r
+read -p "Process is complete, do you want to reboot right meow? " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     /sbin/reboot
