@@ -4,7 +4,7 @@ cd
 clear
 
 tput setaf 3; tput bold; echo "[+] Updating Kali. Please wait."
-apt update -y && apt dist-upgrade -y
+apt-get update && apt-get upgrade -y && apt-get dist-upgrade –y
 
 sleep 1
 
