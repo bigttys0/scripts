@@ -1,0 +1,5 @@
+find /home/kali/<targetdir> -type f -name \*.xml > /home/kali/<targetdir>/xmllist.txt
+
+mkdir <mxmldir>
+
+xargs -a xmllist.txt cp -t /home/kali/cp/mxml && python3 /home/kali/scripts/nMapMerge.py -d /home/kali/cp/mxml
